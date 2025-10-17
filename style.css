@@ -454,6 +454,7 @@ nav a.active {
   cursor: pointer;
   font-size: 1em;
   transition: background 0.3s;
+  margin-bottom: 20px;
 }
 
 #showUpcomingBtn:hover {
@@ -559,8 +560,9 @@ nav a.active {
 .contact-details li {
   display: flex;
   align-items: center;
+  text-align: left;
   gap: 12px;
-  font-size: 18px;
+  font-size: 1.02rem;
   color: #fff;
 }
 
@@ -595,6 +597,14 @@ nav a.active {
   text-align: center;
 }
 
+.contact-details address {
+  font-style: normal;
+  text-decoration: underline;
+  line-height: 1.6;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+}
 .contact-form {
   background: rgba(255,255,255,0.85);
   border-radius: 16px;
@@ -989,7 +999,7 @@ footer {
 address {
   font-style: normal;
   line-height: 1.6;
-  color: #e6e6ec;
+  color: #fff;
   display: inline-flex;
 }
 .footer i {
@@ -1098,6 +1108,7 @@ nav a {
 }
 .aboutus-text h2 {
   font-size: 1.5rem;
+  color: #545fa5;
 }
 .aboutus-text p {
   font-size: 1rem;
