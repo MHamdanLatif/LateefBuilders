@@ -1,0 +1,157 @@
+For featured projects cards
+
+🖼️ 1. Project Image / Render
+
+Purpose: Immediately capture attention and set tone (premium / modern / residential / commercial).
+
+Tip: Use 16:9 aspect ratio, high-quality render (no people in it).
+
+🏗️ 2. Project Name
+
+Example: Lateef Heights, Crescent Arcade, The Avenue Residency
+
+Purpose: Strong identity — make it prominent and styled in gold/navy/black.
+
+📍 3. Location (Short & Recognizable)
+
+Example: North Nazimabad, Karachi or Shahrah-e-Faisal, Karachi
+
+Purpose: Immediate context and value perception.
+
+🏢 4. Project Type
+
+Example: Residential Apartments, Commercial Plaza, Mixed-Use Development
+
+Purpose: Quickly helps users identify relevance to their needs.
+
+💰 5. Price Range / Starting Price (Optional)
+
+Example: Starting from PKR 1.5 Crore
+
+Purpose: Attract interest from qualified buyers; can be skipped for luxury branding.
+
+📅 6. Project Status
+
+Example: Under Construction, Ready for Possession, Booking Open
+
+Purpose: Creates urgency and clarity for investors.
+
+✨ 7. Key Highlight (1 Line Only)
+
+Example:
+
+Modern living with rooftop amenities
+
+Prime investment with 8% projected returns
+
+Luxury offices in the city’s business hub
+
+🔘 8. CTA Buttons
+
+View Details → opens detailed page or downloads PDF
+
+Inquire Now → opens lead form (can prefill project name)
+
+💡 9. (Optional) Tag or Badge
+
+Example badges:
+
+“New Launch”
+
+“Hot Property”
+
+“Under Construction”
+
+“Limited Units Left”
+
+
+
+
+For form collection and leads (CRM)
+Option 1: Using FormSubmit (Easiest, No Code Required)
+
+🔗 Website: https://formsubmit.co
+
+✅ Steps:
+
+Replace the form’s action attribute with your own email address in FormSubmit format:
+
+<form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
+
+
+Add hidden fields for better control:
+
+<input type="hidden" name="_subject" value="New Property Inquiry - Lateef Properties">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://www.lateefbuilders.com/thankyou.html">
+
+
+The first time someone submits a form, you’ll get a confirmation email — click “Confirm” to start receiving future submissions.
+
+After confirmation, every form submission will email you directly with all the fields neatly formatted.
+
+🧩 Example Form (FormSubmit version):
+<form action="https://formsubmit.co/info@lateefbuilders.com" method="POST">
+  <input type="hidden" name="_subject" value="New Property Inquiry - Lateef Properties">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://www.lateefbuilders.com/thankyou.html">
+
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address">
+  <input type="tel" name="phone" placeholder="Phone / WhatsApp" required>
+  <textarea name="message" placeholder="Tell us what you’re looking for..."></textarea>
+
+  <button type="submit">Submit Inquiry</button>
+</form>
+
+
+💡 Tip: Create a small thankyou.html page that says “Thank you for contacting Lateef Properties — our team will reach out soon.”
+
+⚙️ Option 2: Using EmailJS (More Flexible, For Dynamic Forms)
+
+🔗 Website: https://www.emailjs.com
+
+✅ Steps:
+
+Create an EmailJS account and add a new email service (e.g., Gmail).
+
+Create a new template for your email body.
+
+Copy your Service ID, Template ID, and Public Key.
+
+Install EmailJS (no backend needed)
+In your HTML, add this script in the <head> or before </body>:
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+</script>
+
+
+Attach it to your form (JS):
+
+<script>
+document.querySelector(".lead-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+    .then(() => {
+      alert("Your inquiry has been sent successfully!");
+      this.reset();
+    }, (error) => {
+      alert("Failed to send message, please try again.");
+      console.error(error);
+    });
+});
+</script>
+
+
+You can fully customize the email template inside EmailJS (include branding, project name, etc.).
+
+🧠 Recommendation:
+
+If you want fast setup + reliability, use FormSubmit.
+If you want dynamic behavior (like auto-including project name, or CRM integration), go with EmailJS.
