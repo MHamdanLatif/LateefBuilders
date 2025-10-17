@@ -53,23 +53,77 @@
 <body>
 
   <!-- Header -->
-  <header>
-    <h1>Lateef Builders & Properties</h1>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#aboutus">About Us</a>
-      <a href="#Projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <a href="#agency">Agency</a>
-    </nav>
-  </header>
+   <header>
+ <div class="logo-heading">
+  <h1>Lateef Builders & Properties</h1>
+</div>
+
+  <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav id="main-nav" role="navigation">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#aboutus">About Us</a></li>
+      <li><a href="#Projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#agency">Agency</a></li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  (function(){
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+
+    function setAria(expanded) {
+      toggle.setAttribute('aria-expanded', String(!!expanded));
+    }
+
+    toggle && toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      const isOpen = nav.classList.contains('open');
+      setAria(isOpen);
+    });
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('#main-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          setAria(false);
+        }
+      });
+    });
+
+    // Close on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        setAria(false);
+      }
+    });
+
+    // Close when clicking outside nav (mobile)
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        setAria(false);
+      }
+    });
+  })();
+</script>
 
  
   <!-- Hero Section -->
   <section class="hero" id="hero">
   </section>
 
-<!-- ...existing code... -->
+
 <!--About Us-->
 <section class="aboutus" id="aboutus">
   <div class="aboutus-container">
@@ -84,6 +138,8 @@
     </div>
   </div>
 </section>
+
+
 
 <section class="impact-section">
   <div class="impact-container">
@@ -110,156 +166,6 @@
     </div>
   </div>
 </section>
-
-<!--
- Timeline Section 
-<section class="timeline-section">
-  <h2>Success Story</h2>
-  <div class="timeline timeline-two-columns">
-    <div class="timeline-col">
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>1976</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Lateef Plaza</h3>
-          <p>100 flats, 30 Shops. Block 6 Gulshan e Iqbal</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>1984</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Bilal Homes</h3>
-          <p>56 Bungalows of 120 Sq.yds. in Sectors 14-A, NKTS.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>1997</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Lateef Square</h3>
-          <p>72 Flats, 150 Shops in Block-16 Federal B Area, Karachi.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2007</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Babar Vista</h3>
-          <p>18 Flats 1200 Sq.Ft. and 5 Shops, Block-K, North Nazimabad.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2008</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Afnan Duplex</h3>
-          <p>166 Duplex units 1850 Sq.Ft. Block-13, Gulistan-e-Jauher.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2021</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Lateef Duplex Luxuria</h3>
-          <p>108 Units 2700 Sq.Ft. Plot No# NC-21, KDA, Scheme-33.</p>
-        </div>
-      </div>
-    </div>
-    <div class="timeline-col">
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>1977</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Lateef Nagar</h3>
-          <p>109 Bungalows of 120 Sq.yds. in Sector 11-C, NKTS.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>1990</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Wahida Villas</h3>
-          <p>6 Bungalows of 200 Sq.yds. and 4 Bungalows of 400 Sq.yds. in Block-7, Gulshan-e-Iqbal.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2000</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Pasha Bungalows</h3>
-          <p>30 One-Unit Bungalows each of 100 Sq.yds. in Block 17, Gulshan-e-Iqbal</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2008</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Rim Jhim Towers</h3>
-          <p>132 flats 3200 Sq.Ft. and 195 Shops, Safora Chowk, Scheme 33.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2020</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Lateef Heights</h3>
-          <p>31 Flats, 4 Shops. Block-N, Scheme-7, North Nazimabad.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2021</span>
-        </div>
-        <div class="timeline-content">
-          <h3>A. Signature</h3>
-          <p>Showrooms 8 Units, B-75, Block-L, North Nazimabad.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-circle">
-          <span>2025</span>
-        </div>
-        <div class="timeline-content">
-          <h3>Skylight Towers</h3>
-          <p>140 Shops, Lower Ground & Upper Ground Floors, Scheme-33.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  -->
-<!--
-  // Stats Section 
-<section class="stats-section">
-  <div class="stats-container">
-    <div class="stat-box">
-      <h3>Total Projects</h3>
-      <span class="counter" data-target="12">0</span>
-    </div>
-    <div class="stat-box">
-      <h3>Delivered Projects</h3>
-      <span class="counter" data-target="12">0</span>
-    </div>
-    <div class="stat-box">
-      <h3>Upcoming Projects</h3>
-      <span class="counter" data-target="3">0</span>
-    </div>
-  </div>
-</section>
--->
-
 
 <script>
  
@@ -526,9 +432,9 @@ window.addEventListener('scroll', function() {
 
     </div>
     <button class="slider-btn next">&#10095;</button>
-  </div>
-  
+  </div>  
 </section>
+
 <!-- Upcoming Projects Section -->
 <section class="upcoming-projects" id="upcoming-projects">
   <h2>Upcoming Projects</h2>
@@ -674,21 +580,7 @@ window.addEventListener('scroll', function() {
   </div>
 </div>
 
-<!--
-  <div class="discover-cards">
-    <div class="discover-card">
-      <i class="fas fa-home"></i>
-      <h4>Residential Sales</h4>
-    </div>
-    <div class="discover-card">
-      <i class="fas fa-building"></i>
-      <h4>Commercial Spaces</h4>
-    </div>
-    <div class="discover-card">
-      <i class="fas fa-chart-line"></i>
-      <h4>Investment Deals</h4>
-    </div>
-  </div>-->
+
 </section>
 <script>
 let currentIndex = 0;
