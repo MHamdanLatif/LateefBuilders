@@ -22,16 +22,73 @@
 <body>
 
   <!-- Header -->
-  <header>
-    <h1>Lateef Properties</h1>
-    <nav>
-      <a href="index.html">Back to Builders</a>
-      <a href="#aboutus">About</a>
-      <a href="#listings">Listings</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+ <!-- Replace existing <header> ... </header> with this block -->
+<header>
+ <div class="logo-heading">
+  <h1>Lateef Properties</h1>
+</div>
+
+  <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav id="main-nav" role="navigation">
+    <ul>
+      <li><a href="index.html">Back to Builders</a></li>
+      <li><a href="#aboutus">About</a></li>
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<script>
+  (function(){
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+
+    function setAria(expanded) {
+      toggle.setAttribute('aria-expanded', String(!!expanded));
+    }
+
+    toggle && toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      const isOpen = nav.classList.contains('open');
+      setAria(isOpen);
+    });
+
+    // Close nav on link click (mobile)
+    document.querySelectorAll('#main-nav a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          setAria(false);
+        }
+      });
+    });
+
+    // Close on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        setAria(false);
+      }
+    });
+
+    // Close when clicking outside nav (mobile)
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        setAria(false);
+      }
+    });
+  })();
+</script>
 
   <!-- Hero Section -->
   <section class="hero-slideshow">

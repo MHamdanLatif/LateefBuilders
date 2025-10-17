@@ -26,51 +26,201 @@ body {
   color: #5c6271;      /* Body Text */
 }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #2f3558, #545fa5);
-  color: #fff;
-  padding: 20px 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(44,49,63,0.10);
+/* ==========================================================
+   HEADER STYLES — Lateef Properties
+   Clean layout: Heading Left, Hamburger Right on one row
+   ========================================================== */
+
+:root {
+  --header-height: 72px;
+  --accent: #545fa5;
+  --accent-2: #5d74b1;
+  --soft-highlight: #b7cfc6;
+  --dark-grad-start: #2f3558;
+  --dark-grad-end: #545fa5;
 }
 
-header h1 {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: #fff;
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  padding-top: var(--header-height);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.logo-heading img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
+
+/* ===== HEADER CONTAINER ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  background: linear-gradient(135deg, var(--dark-grad-start), var(--dark-grad-end));
+  color: #fff;
+  z-index: 9999;
+  box-shadow: 0 4px 18px rgba(20, 24, 40, 0.12);
+}
+
+/* ===== LOGO / TITLE ===== */
+.logo-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-heading h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
   display: block;
 }
-nav a {
-  margin: 0 15px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-  padding-bottom: 4px;
-}
-nav a:hover {
-  color: #5d74b1;
+
+nav ul {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-nav a.active {
-  border-bottom: 3px solid #b7cfc6; /* Soft Highlight */
-  color: #b7cfc6;
-  padding-bottom: 4px;
-  transition: border 0.2s, color 0.2s;
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 6px;
+  border-radius: 8px;
+  transition: color 0.18s ease, background 0.18s ease;
 }
+
+nav a:hover {
+  color: var(--accent-2);
+}
+
+/* ===== HAMBURGER ===== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  width: 44px;
+  height: 40px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+}
+
+.nav-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  margin: 3px 0;
+  transition: transform 0.25s ease, opacity 0.18s ease;
+}
+
+/* “X” animation when active */
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ===== MOBILE STYLES ===== */
+@media (max-width: 900px) {
+  :root { --header-height: 60px; }
+
+  header {
+    padding: 0 5%;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row; /* make sure they stay side-by-side */
+  }
+
+  .logo-heading {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .logo-heading h1 {
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  .nav-toggle {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    
+  }
+
+  nav {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    width: 280px;
+    max-width: 60%;
+    height: calc(100vh - var(--header-height));
+    background: linear-gradient(180deg, rgba(47, 53, 88, 0.98), rgba(84, 95, 165, 0.98));
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -10px 0 30px rgba(20, 24, 40, 0.25);
+    padding: 20px 18px;
+    overflow-y: auto;
+  }
+
+  nav.open {
+    transform: translateX(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ===== BODY LOCK WHEN NAV OPEN ===== */
+body.nav-open {
+  overflow: hidden;
+}
+
+
 /* Hero Section */
 .hero-slideshow {
   position: relative;
@@ -191,12 +341,12 @@ nav a.active {
 @media (max-width: 900px) {
   .about {
     padding: 28px 4%;
-    max-width: 100%;
-    margin: 24px 0;
+    max-width: 90%;
+    margin: 24px auto;
     border-radius: 10px;
   }
   .about h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 12px;
   }
   .about p {
@@ -330,6 +480,10 @@ nav a.active {
 
 /* Small screens */
 @media (max-width: 900px) {
+  .section h2{
+    font-size: 8rem;
+    
+  }
   .card img {
     height: 140px;
   }
@@ -360,6 +514,7 @@ nav a.active {
   box-shadow: 0 4px 16px rgba(191,195,205,0.08);
   margin: 40px auto;
   max-width: 85%;
+  
 }
 
 .our-services h2 {
@@ -422,8 +577,10 @@ nav a.active {
 @media (max-width: 900px) {
   .our-services {
     padding: 32px 4%;
-    margin: 24px 0;
+    max-width: 90%;
+    margin: 24px auto;
     border-radius: 10px;
+    align-items: center;
   }
   .service-grid {
     grid-template-columns: 1fr;
@@ -431,6 +588,8 @@ nav a.active {
   }
   .service-box {
     padding: 18px 8px;
+    max-width: 90%;
+    margin: 0 auto;
   }
   .service-box i {
     font-size: 1.5rem;
@@ -566,12 +725,13 @@ nav a.active {
     margin-top: 18px;
   }
   .why-text h2 {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-bottom: 12px;
   }
   .why-text p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 12px;
+    justify-content: space-between;
   }
   .why-item i {
     font-size: 1.3rem;
@@ -1049,7 +1209,7 @@ footer {
     padding: 32px 4%;
   }
   .section h2 {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-bottom: 18px;
   }
   .properties {
