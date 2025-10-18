@@ -1210,7 +1210,7 @@ address {
 
   .footer h3::after,
   .footer h4::after {
-    left: 4%;
+    left: 20px;
     transform: translateX(-50%);
     align-items: left;
   }
@@ -1224,6 +1224,9 @@ header {
   padding: 16px 4%;
   flex-direction: column;
   align-items: flex-start;
+}
+.logo-heading h1 {
+  font-size: 1.4rem;
 }
 .logo-heading img {
   height: 48px;
@@ -1244,9 +1247,10 @@ nav a {
 /* Hero Section */
 .hero {
   margin-top: var(--hero-margin-top-mobile);
-  height: 30vh;
-  min-height: 280px;
+  height: 20vh;
+  min-height: 200px;
   padding: 0 4%;
+  
 }
 .hero-content h2 {
   font-size: 2rem;
