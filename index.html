@@ -1,670 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic Meta Tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lateef Builders & Properties | Premium Construction & Real Estate in Karachi</title>
-  <meta name="description" content="Since 1962, Lateef Builders & Properties has been a trusted name in Karachi’s construction and real estate industry. Discover premium apartments, duplexes, and commercial projects built with integrity and excellence.">
-  <meta name="keywords" content="Lateef Builders, Lateef Properties, Karachi real estate, construction Karachi, builders in Karachi, apartments Karachi, duplex Karachi, commercial projects Karachi">
-  <meta name="author" content="Lateef Builders & Properties">
-
-  <!-- Open Graph / Social Sharing (Facebook, WhatsApp, LinkedIn) -->
-  <meta property="og:title" content="Lateef Builders & Properties">
-  <meta property="og:description" content="Building Karachi’s skyline since 1962 — discover our residential, commercial, and investment projects.">
-  <meta property="og:image" content="https://www.lateefbuilders.com/assets/logo-2.png">
-  <meta property="og:url" content="https://www.lateefbuilders.com">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_PK">
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/logo-2.png" type="image/png">
-
-  <!-- Stylesheets -->
+  <title>Lateef Builders | Premium Construction in Karachi Since 1962</title>
+  <meta name="description" content="Lateef Builders has been shaping Karachi's skyline since 1962. We specialize in premium residential, commercial, and high-rise construction projects.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Schema Markup for Local Business -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Lateef Builders & Properties",
-    "image": "https://www.lateefbuilders.com/assets/logo-2.png",
-    "@id": "",
-    "url": "https://www.lateefbuilders.com",
-    "telephone": "+92-300-1234567",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Block 6, Gulshan-e-Iqbal",
-      "addressLocality": "Karachi",
-      "addressCountry": "PK"
-    },
-    "openingHours": "Mo-Sa 09:00-18:00",
-    "sameAs": [
-      "https://facebook.com/lateefbuilders",
-      "https://instagram.com/lateefbuilders"
-      "https://www.youtube.com/@lateefbuilders2146"
-    ]
-  }
-  </script>
+  
 </head>
-
 <body>
 
-  <!-- Header -->
-   <header>
- <div class="logo-heading">
-  <h1>Lateef Builders & Properties</h1>
-</div>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        <img src="assets/logo-2.png" alt="Lateef Builders Logo">
+        <div class="brand-text">Lateef Builders<span>SINCE 1962</span></div>
+      </div>
+      <i class="fas fa-bars hamburger" id="hamburger"></i>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Legacy Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
 
-  <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-
-  <nav id="main-nav" role="navigation">
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#aboutus">About Us</a></li>
-      <li><a href="#Projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#agency">Agency</a></li>
-    </ul>
-  </nav>
-</header>
-
-<script>
-  (function(){
-    const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('main-nav');
-
-    function setAria(expanded) {
-      toggle.setAttribute('aria-expanded', String(!!expanded));
-    }
-
-    toggle && toggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      const isOpen = nav.classList.contains('open');
-      setAria(isOpen);
-    });
-
-    // Close nav on link click (mobile)
-    document.querySelectorAll('#main-nav a').forEach(a => {
-      a.addEventListener('click', () => {
-        if (nav.classList.contains('open')) {
-          nav.classList.remove('open');
-          setAria(false);
-        }
-      });
-    });
-
-    // Close on resize to desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 900 && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        setAria(false);
-      }
-    });
-
-    // Close when clicking outside nav (mobile)
-    document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && !toggle.contains(e.target) && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        setAria(false);
-      }
-    });
-  })();
-</script>
-
- 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Building Karachi's Skyline</h1>
+      <p>Decades of architectural excellence, structural integrity, and a commitment to shaping communities that last for generations.</p>
+      <a href="#projects" class="btn">Explore Our Legacy</a>
+    </div>
   </section>
 
-
-<!--About Us-->
-<section class="aboutus" id="aboutus">
-  <div class="aboutus-container">
-    <div class="aboutus-img">
-      <img src="assets/Dada Jaan.png" alt="About Us Image">
+  <section id="about">
+    <h2 class="section-title">A Legacy of Trust</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Karachi thrives on growth and opportunity. Since 1962, M/S Lateef Builders, established by the visionary Mr. Muhammad Abdul Lateef (Late), has been at the forefront of this evolution.</p>
+        <p>From foundational bungalows in the 1970s to modern high-rise luxury duplexes today, our approach remains unchanged: uncompromising quality, innovative engineering, and on-time delivery. We don't just pour concrete; we build the foundations for businesses to thrive and families to grow.</p>
+        
+        <div class="about-features">
+          <div class="feature"><i class="fas fa-hard-hat"></i> Structural Integrity</div>
+          <div class="feature"><i class="fas fa-city"></i> Modern Architecture</div>
+          <div class="feature"><i class="fas fa-handshake"></i> Trusted Delivery</div>
+          <div class="feature"><i class="fas fa-pencil-ruler"></i> Master Planning</div>
+        </div>
+      </div>
+      <div class="about-img">
+        <img src="assets/Mr. Abdul Lateef.jpg" alt="Lateef Builders Founder">
+      </div>
     </div>
-    <div class="aboutus-text">
-      <h2>About Us</h2>
-      <p>Karachi, the Crown of Pakistan, thrives on growth and opportunity — and construction lies at the heart of its progress. Since 1962, M/S Lateef Builders, established by Mr. Muhammad Abdul Lateef (Late), has shaped that journey through vision, craftsmanship, and integrity.</p>
-      <p>From high-rise landmarks to modern homes, every project reflects our dedication to quality, innovation, and timely delivery. With every brick, we strengthen our promise of building a better city — one project, one family, and one legacy at a time.</p>
-      <p>At Lateef Builders, we don’t just build structures — we build trust, reputation, and a lasting legacy of quality.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-
-
-<section class="impact-section">
-  <div class="impact-container">
-    <h2>Building Communities, Empowering Lives</h2>
-    <p>Since 1962, Lateef Builders has been shaping Karachi’s skyline, delivering homes and business spaces that stand for quality, trust, and legacy.</p>
-    
-    <div class="impact-stats">
-      <div class="impact-box">
-        <h3>830+</h3>
+  <div class="stats-wrapper">
+    <div class="stats-container">
+      <div class="stat-box">
+        <h3 class="counter" data-target="830">0</h3>
         <p>Homes Delivered</p>
       </div>
-      <div class="impact-box">
-        <h3>400+</h3>
-        <p>Shops & Showrooms</p>
+      <div class="stat-box">
+        <h3 class="counter" data-target="400">0</h3>
+        <p>Commercial Spaces</p>
       </div>
-      <div class="impact-box">
-        <h3>1,200+</h3>
-        <p>Families & Businesses Impacted</p>
+      <div class="stat-box">
+        <h3 class="counter" data-target="1200">0</h3>
+        <p>Families Impacted</p>
       </div>
-      <div class="impact-box">
-        <h3>63+</h3>
+      <div class="stat-box">
+        <h3 class="counter" data-target="64">0</h3>
         <p>Years of Excellence</p>
       </div>
     </div>
   </div>
-</section>
 
-<script>
- 
-function animateImpactBoxes() {
-  const boxes = document.querySelectorAll('.impact-box h3');
-  boxes.forEach(box => {
-    const target = parseInt(box.textContent.replace(/\D/g, ''), 10);
-    if (isNaN(target)) return;
-    let count = 0;
-    const increment = Math.ceil(target / 75);
-
-    function updateCount() {
-      if (count < target) {
-        count = count + increment > target ? target : count + increment;
-        box.textContent = count + (box.textContent.includes('+') ? '+' : '');
-        setTimeout(updateCount, 25);
-      } else {
-        box.textContent = target + (box.textContent.includes('+') ? '+' : '');
-      }
-    }
-    updateCount();
-  });
-}
-
-let impactAnimated = false;
-window.addEventListener('scroll', function() {
-  if (impactAnimated) return;
-  const impactSection = document.querySelector('.impact-section');
-  const rect = impactSection.getBoundingClientRect();
-  if (rect.top < window.innerHeight && rect.bottom > 0) {
-    animateImpactBoxes();
-    impactAnimated = true;
-  }
-});
-
- //Counter Animation
-  function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-      const target = +counter.getAttribute('data-target');
-      let count = 0;
-      const increment = Math.ceil(target / 300);
-
-      function updateCount() {
-        if (count < target) {
-          count = count + increment > target ? target : count + increment;
-          counter.innerText = count;
-          setTimeout(updateCount, 100);
-        } else {
-          counter.innerText = target;
-        }
-      }
-      updateCount();
-    });
-  }
-
-  let countersAnimated = false;
-  window.addEventListener('scroll', function() {
-    if (countersAnimated) return;
-    const statsSection = document.querySelector('.stats-section');
-    const rect = statsSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      animateCounters();
-      countersAnimated = true;
-    }
-  });
-
-  // Simple Slider Functionality
-    document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.getElementById('projectSlider');
-    const cards = slider.querySelectorAll('.card');
-    const prevBtn = document.querySelector('.slider-btn.prev');
-    const nextBtn = document.querySelector('.slider-btn.next');
-    let currentIndex = 0;
-    const visibleCards = 3;
-
-    function updateSlider() {
-      const cardWidth = cards[0].offsetWidth + 25;
-      slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < cards.length - visibleCards) {
-        currentIndex++;
-        updateSlider();
-      }
-    });
-
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSlider();
-      }
-    });
-
-    window.addEventListener('resize', updateSlider);
-    updateSlider();
-  });
-    document.getElementById('showUpcomingBtn').addEventListener('click', function () {
-    const container = document.getElementById('upcomingContainer');
-    
-    // Example data — replace with your real upcoming projects
-    const upcomingProjects = [
-      {
-        name: "Skylight Towers",
-        location: "Scheme 33, Karachi",
-        description: "A modern mixed-use complex featuring retail and luxury apartments."
-      },
-      {
-        name: "Lateef Icon Residencia",
-        location: "North Nazimabad, Karachi",
-        description: "Premium residential apartments with modern architecture and smart living features."
-      },
-      {
-        name: "Crescent Avenue",
-        location: "Gulistan-e-Jauhar, Karachi",
-        description: "Elegant commercial and residential spaces designed for modern urban lifestyles."
-      }
-    ];
-
-    // If already visible, hide and reset
-    if (container.style.display === "block") {
-      container.style.display = "none";
-      this.textContent = "Show Upcoming Projects";
-      return;
-    }
-
-    // Otherwise, show and populate
-    container.style.display = "block";
-    this.textContent = "Hide Upcoming Projects";
-
-    // Clear old content if any
-    container.innerHTML = "";
-
-    // Create and insert project cards
-    upcomingProjects.forEach(project => {
-      const card = document.createElement('div');
-      card.classList.add('upcoming-card');
-      card.innerHTML = `
-        <h3>${project.name}</h3>
-        <p><strong>Location:</strong> ${project.location}</p>
-        <p>${project.description}</p>
-      `;
-      container.appendChild(card);
-    });
-  });
-</script>
-  
-  <!-- Projects Section -->
-  <section class="timeline-section" id="Projects">
-  <h2>Success Story</h2>
-
-  <div class="slider-container">
-    <button class="slider-btn prev">&#10094;</button>
-    <div class="slider" id="projectSlider">
+  <section id="projects">
+    <h2 class="section-title">Our Success Story</h2>
+    <div class="portfolio-grid">
       
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Lateef Plaza">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Lateef-Plaza.png');"></div>
+        <div class="project-info">
+          <span class="project-year">1976 • Gulshan-e-Iqbal</span>
           <h3>Lateef Plaza</h3>
-          <h4>1976</h4>
           <p>100 flats and 30 shops introducing modern mixed-use living in Block 6, Gulshan-e-Iqbal.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Lateef Nagar">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Lateef-Nagar.png');"></div>
+        <div class="project-info">
+          <span class="project-year">1977 • Sector 11-C, NKTS</span>
           <h3>Lateef Nagar</h3>
-          <h4>1977</h4>
-          <p>109 bungalows of 120 sq. yds., creating a peaceful residential enclave in Sector 11-C, NKTS.</p>
+          <p>109 bungalows of 120 sq. yds., creating a peaceful residential enclave.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Bilal Homes">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Bilal-Homes.png');"></div>
+        <div class="project-info">
+          <span class="project-year">1984 • Sector 14-A, NKTS</span>
           <h3>Bilal Homes</h3>
-          <h4>1984</h4>
-          <p>56 stylish 120 sq. yds. bungalows offering comfort and modern family living in Sector 14-A, NKTS.</p>
+          <p>56 stylish 120 sq. yds. bungalows offering comfort and modern family living.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Wahida Villas">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Wahida-Villas.png');"></div>
+        <div class="project-info">
+          <span class="project-year">1990 • Gulshan-e-Iqbal</span>
           <h3>Wahida Villas</h3>
-          <h4>1990</h4>
-          <p>10 luxury bungalows — 6 of 200 sq. yds. and 4 of 400 sq. yds. — in Block 7, Gulshan-e-Iqbal.</p>
+          <p>10 luxury bungalows in Block 7, designed for premium residential living.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Lateef Square">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Lateef-Square.png');"></div>
+        <div class="project-info">
+          <span class="project-year">1997 • Federal B Area</span>
           <h3>Lateef Square</h3>
-          <h4>1997</h4>
-          <p>72 flats and 150 shops forming a vibrant commercial hub in Block 16, Federal B Area, Karachi.</p>
+          <p>72 flats and 150 shops forming a vibrant commercial hub in Block 16.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Pasha Bungalows">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Pasha-Bungalows.png');"></div>
+        <div class="project-info">
+          <span class="project-year">2000 • Gulshan-e-Iqbal</span>
           <h3>Pasha Bungalows</h3>
-          <h4>2000</h4>
-          <p>30 one-unit 100 sq. yds. bungalows, designed for serene family living in Block 17, Gulshan-e-Iqbal.</p>
+          <p>30 one-unit 100 sq. yds. bungalows, designed for serene family living in Block 17.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Babar Vista">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Babar-Vista.png');"></div>
+        <div class="project-info">
+          <span class="project-year">2007 • North Nazimabad</span>
           <h3>Babar Vista</h3>
-          <h4>2007</h4>
-          <p>18 flats (1200 sq. ft.) and 5 shops offering modern comfort in Block K, North Nazimabad.</p>
+          <p>18 flats (1200 sq. ft.) and 5 shops offering modern comfort in Block K.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Afnan Duplex">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Afnan-Duplex.png');"></div>
+        <div class="project-info">
+          <span class="project-year">2008 • Gulistan-e-Jauhar</span>
           <h3>Afnan Duplex</h3>
-          <h4>2008</h4>
-          <p>166 duplex units of 1850 sq. ft., offering spacious luxury in Block 13, Gulistan-e-Jauhar.</p>
+          <p>166 duplex units of 1850 sq. ft., offering spacious luxury in Block 13.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Rim Jhim Towers">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Rimjhim-Towers.png');"></div>
+        <div class="project-info">
+          <span class="project-year">2008 • Scheme 33</span>
           <h3>Rim Jhim Towers</h3>
-          <h4>2008</h4>
-          <p>132 flats (3200 sq. ft.) and 195 shops defining premium mixed-use living at Safora Chowk, Scheme 33.</p>
+          <p>132 flats and 195 shops defining premium mixed-use living at Safora Chowk.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Lateef Heights">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Lateef-Heights.png');"></div>
+        <div class="project-info">
+          <span class="project-year">2020 • North Nazimabad</span>
           <h3>Lateef Heights</h3>
-          <h4>2020</h4>
-          <p>31 flats and 4 shops reflecting modern design and comfort in Block N, Scheme 7, North Nazimabad.</p>
+          <p>31 flats and 4 shops reflecting modern design and comfort in Block N, Scheme 7.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="Lateef Duplex Luxuria">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/Lateef-Duplex-Luxuria.png');"></div>
+        <div class="project-info">
+          <span class="project-year">2021 • Scheme 33</span>
           <h3>Lateef Duplex Luxuria</h3>
-          <h4>2021</h4>
-          <p>108 premium duplex units of 2700 sq. ft., built at Plot NC-21, KDA Scheme 33, Karachi.</p>
+          <p>108 premium duplex units of 2700 sq. ft., offering expansive luxury amenities.</p>
         </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Skylight Elevation.jpg" alt="A. Signature">
-        <div class="card-body">
+      <div class="project-card">
+        <div class="project-img" style="background-image: url('elevation/A-Signature.png');"></div>
+        <div class="project-info">
+          <span class="project-year">2021 • North Nazimabad</span>
           <h3>A. Signature</h3>
-          <h4>2021</h4>
-          <p>8 exclusive showroom units at B-75, Block L, North Nazimabad, reflecting contemporary commercial design.</p>
+          <p>8 exclusive showroom units at B-75, Block L, reflecting contemporary commercial design.</p>
         </div>
       </div>
 
     </div>
-    <button class="slider-btn next">&#10095;</button>
-  </div>  
-</section>
+  </section>
 
-<!-- Upcoming Projects Section -->
-<section class="upcoming-projects" id="upcoming-projects">
-  <h2>Upcoming Projects</h2>
-  <button id="showUpcomingBtn">Show Upcoming Projects</button>
+  <section id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-grid">
+      
+      <div class="contact-info">
+        <p style="color: var(--text-light); margin-bottom: 2.5rem;">We'd love to hear from you! Reach out for project inquiries, collaborations, or any questions.</p>
+        
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <strong style="color: var(--text-dark);">Head Office</strong><br>
+            <span style="color: var(--text-light);">Ground Floor Office, Four Seasons Apartment, Block 16, Gulshan-e-Iqbal, Karachi</span>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <strong style="color: var(--text-dark);">Phone</strong><br>
+            <span style="color: var(--text-light);">+92 336 3528333</span>
+          </div>
+        </div>
 
-  <div class="upcoming-container" id="upcomingContainer" style="display: none;">
-    <!-- Dynamic content will appear here -->
-     <div class="card">
-        <img src="assets/COMING SOON!.png" alt="A. Signature">
-        <div class="card-body">
-          <h3>Lateef Suncity</h3>
-          <p>A modern residential society offering 120 and 240 sq. yds. plots with well-planned infrastructure, green surroundings, and essential community amenities.</p>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <strong style="color: var(--text-dark);">Email</strong><br>
+            <span style="color: var(--text-light);">info@lateefbuilders.com</span>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <img src="assets/COMING SOON!.png" alt="A. Signature">
-        <div class="card-body">
-          <h3>Lateef Residency</h3>
-          <p>A contemporary mixed-use project featuring thoughtfully designed apartment units and ground-floor shops for convenient urban living.</p>
-        </div>
+
+      <div class="contact-form">
+        <form action="https://formsubmit.co/m.hamdan.latif2001@gmail.com" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Full Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" placeholder="Tell us about your inquiry..." required></textarea>
+          </div>
+          <button type="submit" class="btn submit-btn">Send Message</button>
+        </form>
       </div>
-      <div class="card">
-        <img src="assets/COMING SOON!.png" alt="A. Signature">
-        <div class="card-body">
-          <h3>Lateef Towers</h3>
-          <p>A premium high-rise development offering residential flats in various categories, blending comfort, elegance, and modern city life.</p>
-        </div>
-      </div>
-  </div>
-</section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const btn = document.getElementById('showUpcomingBtn');
-    const container = document.getElementById('upcomingContainer');
-
-    const upcomingProjects = [
-  {
-    name: "Lateef SunCity",
-    location: "Karachi",
-    description: "A modern residential society offering 120 sq. yds. plots with planned infrastructure, green spaces, and community amenities."
-  },
-  {
-    name: "Lateef Residencia",
-    location: "Karachi",
-    description: "A contemporary apartment and commercial project featuring well-designed residential units and ground-floor shops for convenience."
-  },
-  {
-    name: "Lateef Towers",
-    location: "Karachi",
-    description: "A premium high-rise development offering residential flats in multiple categories, combining comfort, style, and urban living."
-  }
-];
-
-    btn.addEventListener('click', function () {
-      const isVisible = container.style.display === "flex";
-
-      if (isVisible) {
-        container.style.display = "none";
-        btn.textContent = "Show Upcoming Projects";
-      } else {
-        container.style.display = "flex"; // ✅ makes cards align in a row
-        btn.textContent = "Hide Upcoming Projects";
-
-        if (container.innerHTML.trim() === "") {
-          upcomingProjects.forEach(project => {
-            const card = document.createElement('div');
-            card.classList.add('upcoming-card');
-            card.innerHTML = `
-              <h3>${project.name}</h3>
-              <p><strong>Location:</strong> ${project.location}</p>
-              <p>${project.description}</p>
-            `;
-            container.appendChild(card);
-          });
-        }
-      }
-    });
-  });
-</script>
-
-
-
-<!-- Contact Section -->
-<section class="contact-section" id="contact">
-  <div class="contact-container">
-    <div class="contact-details">
-      <h2>Get In Touch</h2>
-      <p>We'd love to hear from you! Reach out for project inquiries, collaborations, or any questions.</p>
-      <ul>
-        <li><strong>Phone:</strong> <a href="tel:+923001234567">+92 300 1234567</a></li>
-        <li><strong>Email:</strong> <a href="mailto:info@lateefbuilders.com">info@lateefbuilders.com</a></li>
-        <li><strong>Address:</strong> <a href="https://www.google.com/maps/place/Lateef+Builders+and+Properties/@24.9036306,67.077936,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33fa4811cf2ad:0xe94d445b7a2ddae1!8m2!3d24.9036258!4d67.0805109!16s%2Fg%2F11sn_7lcts?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D"><address>Office#12, Main Boulevard,  <br>Gulshan-e-Iqbal, Karachi</address></a></li>
-        <li><strong>Working Hours:</strong>Mon-Sat, 10:00 AM – 07:00 PM</li>
-      </ul>
     </div>
-    <form class="contact-form" action="https://formsubmit.co/m.hamdan.latif2001@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Contact Inquiry - Lateef Builders">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
+  </section>
 
-      <h3>Contact Form</h3>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="phone">Phone</label>
-      <input type="text" id="phone" name="phone" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-  </div>
-</section>
-  <!-- Agency Section -->
- <section class="discover-section" id="agency">
-  <div class="discover-section">
-  <div class="discover-content">
-    <h2>Discover Lateef Properties</h2>
-    <p>
-      The trusted real estate arm of Lateef Builders — offering a curated selection of premium
-      residential and commercial projects across Karachi. Whether you seek a new home, a solid
-      investment, or prime office space, Lateef Properties connects you with developments that
-      reflect a legacy of craftsmanship and reliability.
-    </p>
-    <button onclick="window.open('agency.html', '_blank')" class="explore-btn">Explore Properties</button>
-
-  </div>
-
-  <div class="discover-slider">
-    <div class="slides">
-      <img src="assets/5.png" alt="High-rise 1" />
-      <img src="assets/1.png" alt="High-rise 2" />
-      <img src="assets/7.png" alt="High-rise 3" />
-      <img src="assets/8.png" alt="High-rise 4" />
-      <img src="assets/4.png" alt="High-rise 5" />
-      <img src="assets/3.png" alt="High-rise 6" />
-    </div>
-  </div>
-</div>
-
-
-</section>
-<script>
-let currentIndex = 0;
-const slides = document.querySelectorAll(".slides img");
-const totalSlides = slides.length;
-
-function showNextSlide() {
-  slides[currentIndex].classList.remove("active");
-  currentIndex = (currentIndex + 1) % totalSlides;
-  slides[currentIndex].classList.add("active");
-}
-
-// Initialize first slide
-slides[currentIndex].classList.add("active");
-
-// Auto slide every 5 seconds
-setInterval(showNextSlide, 5000);
-
-//navification active link highlighting
-document.addEventListener('scroll', function() {
-  const sections = ['hero', 'aboutus', 'impact-section', 'timeline-section', 'Projects', 'upcoming-projects', 'contact', 'agency'];
-  let current = '';
-  sections.forEach(id => {
-    const section = document.getElementById(id);
-    if (section) {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 80 && rect.bottom > 80) {
-        current = id;
-      }
-    }
-  });
-  document.querySelectorAll('nav a').forEach(link => {
-    link.classList.remove('active');
-    if (current && link.getAttribute('href').includes(current)) {
-      link.classList.add('active');
-    }
-  });
-});
-</script>
-
-
-<footer class="footer">
+ <footer class="footer">
   <div class="footer-container">
     <div class="footer-about">
-      <h3>Lateef Builders & Properties</h3>
-      <p>Building Karachi’s skyline since 1962 — delivering premium construction and real estate solutions with integrity and excellence.</p>
+      <h3>Lateef Builders</h3>
+      <p>Building Karachi's skyline since 1962. We deliver premium residential and commercial projects grounded in structural integrity, innovation, and a legacy of trust.</p>  
     </div>
 
     <div class="footer-links">
       <h4>Quick Links</h4>
       <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#aboutus">About Us</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#projects">Legacy Projects</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#agency">Agency</a></li>
-       <li><a href="https://www.google.com/maps/place/Lateef+Builders+and+Properties/@24.9036306,67.077936,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33fa4811cf2ad:0xe94d445b7a2ddae1!8m2!3d24.9036258!4d67.0805109!16s%2Fg%2F11sn_7lcts?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D">Location</a></li>
+        <li><a href="https://www.google.com/maps/place/Lateef+Builders+and+Properties/@24.9036306,67.077936,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33fa4811cf2ad:0xe94d445b7a2ddae1!8m2!3d24.9036258!4d67.0805109!16s%2Fg%2F11sn_7lcts?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Location</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
     </div>
 
     <div class="footer-contact">
       <h4>Contact Us</h4>
-      <p><i class="fa-solid fa-phone"></i> +92-300-1234567</p>
-      <p><i class="fa-solid fa-envelope"></i> info@lateefbuilders.com</p>
-      <p><i class="fa-solid fa-location-dot"></i>Block 6, Gulshan-e-Iqbal, Karachi</p>
-      <p><i class="fa-solid fa-clock"></i> Mon–Sat: 9:00am – 6:00pm</p>
+      <p><i class="fa-solid fa-phone"></i> <a href="tel:+923363528333">+92 336 3528333</a></p>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@lateefbuilders.com">info@lateefbuilders.com</a></p>
+      <p>
+        <i class="fa-solid fa-location-dot"></i>
+        <a href="https://www.google.com/maps/place/Lateef+Builders+and+Properties/@24.9036306,67.077936,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33fa4811cf2ad:0xe94d445b7a2ddae1!8m2!3d24.9036258!4d67.0805109!16s%2Fg%2F11sn_7lcts?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+          <address>Ground Floor Office, Four Seasons Apartment, Gulshan-e-Iqbal, Block 16, Karachi</address>
+        </a>
+      </p>
+      <p><i class="fa-solid fa-clock"></i> Mon–Sat: 10:00am – 07:00pm</p>
     </div>
-
+        
     <div class="footer-social">
       <h4>Follow Us</h4>
       <div class="social-icons">
-        <a href="https://facebook.com/lateefbuilders"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com/lateefbuilders"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/923001234567"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.youtube.com/@lateefbuilders2146"><i class="fab fa-youtube"></i></a>
-       </div>
+        <a href="https://facebook.com/lateefbuilders" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/lateefbuilders" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923363528333" id="waBtnFooter" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@lateefbuilders2146" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© 2025 Lateef Builders & Properties. All Rights Reserved.</p>
+    <p>© 2026 Lateef Builders. All Rights Reserved.</p>
   </div>
 </footer>
 
+  <script>
+    // Mobile Navigation
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Animated Counters
+    const counters = document.querySelectorAll('.counter');
+    let animated = false;
+
+    const animateCounters = () => {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            counter.innerText = Math.ceil(current) + "+";
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = target + "+";
+          }
+        };
+        updateCounter();
+      });
+    };
+
+    window.addEventListener('scroll', () => {
+      const statsSection = document.querySelector('.stats-wrapper');
+      if (!statsSection) return;
+      const sectionPos = statsSection.getBoundingClientRect().top;
+      const screenPos = window.innerHeight;
+
+      if (sectionPos < screenPos && !animated) {
+        animateCounters();
+        animated = true;
+      }
+    });
+  </script>
 </body>
 </html>
