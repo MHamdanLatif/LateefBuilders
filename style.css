@@ -29,13 +29,20 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* --- Navigation --- */
+   /* --- Navigation (Transparent to Solid) --- */
     header {
-      background: rgba(255, 255, 255, 0.95);
+      background: transparent; 
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
+      box-shadow: none;
+      backdrop-filter: none;
+      transition: all 0.4s ease-in-out; 
+    }
+
+    header.header-scrolled {
+      background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       backdrop-filter: blur(10px);
     }
@@ -44,15 +51,41 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0.8rem 2rem;
+      min-height: 75px; /* Keeps the header height stable */
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      align-items: center; 
+      position: relative; /* Crucial for absolute logo positioning */
     }
 
+    /* --- THE MAGIC ANIMATED SPACER --- */
+    /* This invisible block smoothly pushes the links from left to right on scroll */
+    .nav-container::before {
+      content: '';
+      flex-grow: 0;
+      transition: flex-grow 0.4s ease-in-out;
+    }
+
+    header.header-scrolled .nav-container::before {
+      flex-grow: 1; /* Expands to push the nav-links to the far right */
+    }
+
+    /* Brand Logo & Text */
     .brand {
+      position: absolute; /* Takes it out of the flex flow */
+      left: 2rem; /* Aligns exactly with container padding */
       display: flex;
       align-items: center;
       gap: 12px;
+      opacity: 0; 
+      visibility: hidden;
+      transform: translateX(-20px); 
+      transition: all 0.4s ease-in-out;
+    }
+
+    header.header-scrolled .brand {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0); 
     }
 
     .brand img {
@@ -85,12 +118,17 @@
       list-style: none;
     }
 
+    /* Links are White when transparent, Dark when scrolled */
     .nav-links a {
-      color: var(--text-dark);
+      color: var(--white); 
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       transition: var(--transition);
       position: relative;
+    }
+
+    header.header-scrolled .nav-links a {
+      color: var(--text-dark); 
     }
 
     .nav-links a::after {
@@ -105,17 +143,21 @@
     }
 
     .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color: var(--primary-blue); }
+    .nav-links a:hover { color: var(--light-blue); }
 
     .hamburger {
       display: none;
-      color: var(--primary-blue);
+      color: var(--white); 
       font-size: 1.5rem;
       cursor: pointer;
+      transition: 0.3s;
     }
 
+    header.header-scrolled .hamburger {
+      color: var(--primary-blue); 
+    }
    
-    /* --- Full Size Hero Section with Slideshow --- */
+    /* --- Refined Hero Section with Integrated Design --- */
     .hero {
       width: 100%;
       max-width: 100%;
@@ -128,7 +170,9 @@
       text-align: center;
       padding: 0 1rem;
       position: relative;
-      overflow: hidden; /* Keeps the zoom effect inside the box */
+      overflow: hidden;
+      /* Background gradient matching image_11.png */
+      background: linear-gradient(135deg, #2f3558, #545fa5);
     }
 
     /* Slideshow Logic */
@@ -138,7 +182,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -2;
+      z-index: 1; /* Changed from -2 */
     }
 
     .slide {
@@ -148,11 +192,25 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      /* 11 slides * 3 seconds = 33s total loop */
+      /* 11 colorful slides * 3 seconds each = 33s total loop, now desaturated by filter */
       animation: fadeSlide 33s infinite; 
     }
 
-    /* 3-second intervals for 11 slides */
+    
+    /* The semi-transparent Slate Blue/Grey Overlay */
+    .hero-skyline-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(40, 50, 75, 0.7); /* Solid fallback */
+      background: linear-gradient(rgba(60, 75, 110, 0.7), rgba(30, 40, 65, 0.55));
+      z-index: 2;
+      pointer-events: none; /* Makes sure you can click through it if needed */
+    }
+
+    /* Staggered start times for 11 slides */
     .slide:nth-child(1)  { animation-delay: 0s; }
     .slide:nth-child(2)  { animation-delay: 3s; }
     .slide:nth-child(3)  { animation-delay: 6s; }
@@ -165,7 +223,7 @@
     .slide:nth-child(10) { animation-delay: 27s; }
     .slide:nth-child(11) { animation-delay: 30s; }
 
-    /* The math: 3 seconds is roughly 9% of the 33-second total loop */
+    /* Keyframes adjusted for 11 slides */
     @keyframes fadeSlide {
       0%   { opacity: 0; transform: scale(1); }
       2%   { opacity: 1; }  /* Fades in quickly (about 0.6 seconds) */
@@ -174,61 +232,104 @@
       100% { opacity: 0; transform: scale(1); }
     }
 
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(58, 75, 134, 0.75), rgba(106, 130, 197, 0.65));
-      z-index: -1;
-    }
-
-    /* Hero Text & Button */
+    /* --- Central Content Positioning --- */
     .hero-content {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 3rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      max-width: 900px; /* Made slightly wider to fit the new slogan */
-      margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        height: 100%; /* Keeps it dead center vertically */
+        max-width: 100%;
+        position: relative;
+        z-index: 3;
     }
 
-    .hero-content h1 {
-      color: var(--white);
-      font-size: 3.5rem;
-      margin-bottom: 0.2rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    /* The combined wrapper for Logo and Text Stack */
+    .brand-box {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        gap: 35px; /* Perfect spacing between logo and text */
+        max-width: 100%;
     }
 
-    .hero-content .subtext {
-      color: #E2E8F0;
-      font-size: 1.1rem;
-      font-weight: 300;
-      font-style: italic;
-      margin-bottom: 2.5rem;
-      letter-spacing: 1px;
+    /* Logo matched to the height of the 4 text lines */
+    .central-logo {
+        height: 200px; 
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        opacity: 1; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        flex-shrink: 0; 
     }
 
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--white);
-      color: var(--primary-blue);
-      font-weight: 600;
-      border-radius: 30px;
-      transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    /* The Text Stack - Aligned exactly like the image */
+    .brand-text-stack {
+        display: flex;
+        flex-direction: column;
+        text-align: left; 
+        justify-content: center;
     }
 
-    .btn:hover {
-      background: var(--gradient-bg);
-      color: var(--white);
-      transform: translateY(-2px);
+    /* LATEEF & BUILDERS Lines - Changed to Black */
+    .title-line-1, .title-line-2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 4.5rem; 
+        line-height: 0.95; 
+        color: #FFFFFF !important; /* Changed to white */
+        text-shadow: none; /* Removed shadow for crispness */
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 2px;
     }
 
+    /* Flexbox keeps SINCE 1962 perfectly on the baseline next to BUILDERS */
+    .title-line-2 {
+        display: flex;
+        align-items: baseline;
+        gap: 15px; /* Space between BUILDERS and SINCE 1962 */
+    }
+
+    .since-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #FFFFFF !important; /* Changed to White */
+        opacity: 0.9;
+    }
+
+    /* Tagline - Justified Alignment & White */
+    .brand-text-stack .tagline {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem; /* Increased size slightly to fill space better */
+        font-weight: 500;
+        letter-spacing: 1px; /* Lowered base spacing so justify does the work */
+        color: #FFFFFF !important; /* Changed to White */
+        opacity: 0.95;
+        margin: 10px 0 5px 0; 
+        text-transform: uppercase;
+        text-shadow: none; /* Removed shadow */
+        
+        /* The Magic Alignment Trick */
+        width: 100%;
+        text-align: justify;
+        text-align-last: justify; /* Forces both edges to touch the sides perfectly */
+    }
+
+    /* Right-aligned italic text - Changed to Black */
+    .grace-text {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        text-align: right; 
+        width: 100%;
+        color: #FFFFFF !important; /* Changed to White */
+        opacity: 0.85;
+        margin: 0;
+        text-shadow: none; /* Removed shadow */
+    }
     /* --- Layout Defaults --- */
     section {
       padding: 6rem 2rem;
@@ -316,6 +417,250 @@
       margin-bottom: 0.5rem;
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
+    }
+
+    /* --- Timeline Upgrades --- */
+    #legacy-timeline {
+      background-color: var(--bg-light);
+      padding: 6rem 2rem;
+    }
+
+    .timeline-subtitle {
+      text-align: center; color: var(--text-light); font-size: 1.1rem;
+      margin-top: -2rem; margin-bottom: 4rem; font-weight: 300;
+    }
+
+    .timeline { position: relative; max-width: 1000px; margin: 0 auto; }
+    .timeline::after {
+      content: ''; position: absolute; width: 4px; background-color: var(--light-blue);
+      top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px;
+    }
+
+    .timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 50%; }
+
+    .timeline-item::after {
+      content: ''; position: absolute; width: 20px; height: 20px; right: -10px;
+      background-color: var(--white); border: 4px solid var(--primary-blue);
+      top: 40px; border-radius: 50%; z-index: 1;
+    }
+    .timeline-item.right::after { left: -10px; }
+
+    /* Clickable Card Styling */
+    .timeline-content {
+      background-color: var(--white); border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: var(--transition);
+      overflow: hidden; cursor: pointer; border: 1px solid rgba(106, 130, 197, 0.1);
+    }
+    .timeline-content:hover {
+      transform: translateY(-8px); box-shadow: 0 20px 40px rgba(58, 75, 134, 0.15);
+    }
+
+    /* Card Image */
+    .timeline-image {
+      width: 100%; height: 220px; background-size: cover; background-position: center;
+      border-bottom: 3px solid var(--light-blue);
+    }
+
+    /* Card Text Area */
+    .timeline-text-wrap { padding: 1.5rem 2rem; position: relative; }
+    
+    .timeline-year {
+      font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;
+      color: rgba(58, 75, 134, 0.08); position: absolute; top: -15px; right: 20px; z-index: 0;
+    }
+
+    .timeline-content h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary-blue);
+      margin-bottom: 8px; position: relative; z-index: 2;
+    }
+
+    .timeline-content p {
+      color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem;
+      position: relative; z-index: 2;
+    }
+
+    .card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid #eee; padding-top: 1rem; position: relative; z-index: 2;
+    }
+
+    .project-value {
+      font-weight: 600; color: var(--primary-blue); font-size: 0.9rem;
+    }
+
+    .view-details {
+      color: var(--light-blue); font-weight: 500; font-size: 0.9rem; transition: 0.3s;
+    }
+    .timeline-content:hover .view-details { color: var(--primary-blue); transform: translateX(3px); }
+
+
+    /* --- Pop-Up Modal Styling --- */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(20, 24, 40, 0.85); backdrop-filter: blur(5px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+
+    .modal-window {
+      background: var(--white); width: 90%; max-width: 1000px;
+      max-height: 90vh; border-radius: 12px; overflow-y: auto;
+      position: relative; transform: translateY(20px); transition: 0.4s ease;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    }
+    .modal-overlay.active .modal-window { transform: translateY(0); }
+
+    .modal-close {
+      position: absolute; top: 15px; right: 20px; font-size: 2rem;
+      color: var(--text-dark); background: none; border: none; cursor: pointer;
+      z-index: 10; transition: 0.2s;
+    }
+    .modal-close:hover { color: red; transform: scale(1.1); }
+
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr; }
+
+    .modal-gallery img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+
+    .modal-info { padding: 3rem; }
+    
+    .modal-badge {
+      display: inline-block; background: var(--gradient-bg); color: var(--white);
+      padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 15px;
+    }
+
+    .modal-info h2 { font-size: 2.2rem; margin-bottom: 1.5rem; line-height: 1.1; }
+
+    .modal-meta p { font-size: 1rem; color: var(--text-dark); margin-bottom: 10px; font-weight: 500; }
+    .modal-meta i { color: var(--light-blue); width: 20px; text-align: center; margin-right: 10px; }
+
+    .modal-description { margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1.5rem; }
+    .modal-description h3 { font-size: 1.2rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif;}
+    .modal-description p { color: var(--text-light); line-height: 1.7; font-size: 0.95rem; }
+
+    /* Mobile Responsive Updates */
+    @media (max-width: 768px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 15px; }
+      .timeline-item.left, .timeline-item.right { left: 0; }
+      .timeline-item.left::after, .timeline-item.right::after { left: 21px; top: 40px;}
+      
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal-gallery img { min-height: 250px; height: 250px; border-radius: 12px 12px 0 0;}
+      .modal-info { padding: 2rem; }
+      .modal-info h2 { font-size: 1.8rem; }
+    }
+
+    /* --- Cinematic Sticky Scroll Showcase --- */
+    .pcl-showcase {
+      background-color: var(--white);
+      padding: 0; /* Full bleed layout */
+      position: relative;
+    }
+
+    .showcase-header {
+      padding: 6rem 2rem 2rem;
+      text-align: center;
+      background: var(--bg-light);
+    }
+
+    .sticky-container {
+      display: flex;
+      align-items: flex-start;
+      background: var(--bg-light);
+    }
+
+    /* Left Side: Massive Pinned Visuals */
+    .sticky-visual {
+      width: 50%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .visual-bg {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.6s ease-in-out; /* Smooth fade between projects */
+      opacity: 0.85; 
+    }
+
+    /* Premium dark gradient overlay */
+    .visual-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to right, rgba(20, 24, 40, 0.9) 0%, rgba(20, 24, 40, 0.2) 100%);
+    }
+
+    .visual-content {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+    }
+
+    .massive-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      font-weight: 700;
+      color: var(--white);
+      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Right Side: Scrolling Content Area */
+    .scrolling-content {
+      width: 50%;
+      /* 50vh padding means the first card starts in the middle of the screen */
+      padding: 50vh 5% 50vh 5%; 
+    }
+
+    .scroll-card {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 4px; /* Sharper corners for a PCL enterprise look */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 25vh; /* Huge gaps so you focus on one project at a time */
+      cursor: pointer;
+      border-left: 5px solid transparent;
+      opacity: 0.4; /* Dimmed when not in focus */
+      transform: scale(0.95);
+      transition: all 0.4s ease;
+    }
+
+    /* The card currently in the center of the screen */
+    .scroll-card.active-card {
+      opacity: 1;
+      transform: scale(1);
+      border-left: 5px solid var(--primary-blue);
+      box-shadow: 0 20px 50px rgba(58, 75, 134, 0.15);
+    }
+
+    .scroll-card h3 { font-size: 2rem; margin-bottom: 10px; }
+    .scroll-card p { font-size: 1.1rem; margin-bottom: 20px; }
+    
+    .card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid #eee; padding-top: 1.5rem;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 992px) {
+      .sticky-container { flex-direction: column; }
+      .sticky-visual { width: 100%; height: 40vh; z-index: 10; border-bottom: 5px solid var(--primary-blue); }
+      .massive-year { font-size: 4rem; left: 5%; }
+      .scrolling-content { width: 100%; padding: 4rem 2rem; }
+      .scroll-card { 
+        margin-bottom: 3rem; 
+        opacity: 1; 
+        transform: scale(1); 
+        border-left: 4px solid var(--primary-blue); 
+      }
     }
 
     /* --- Projects Portfolio (Responsive Grid) --- */
@@ -568,11 +913,15 @@
         padding: 4rem 1.5rem 2rem;
       }
     }
+   
     /* --- Mobile & Tablet Responsiveness --- */
     @media (max-width: 992px) {
       .about-grid, .contact-grid { 
         grid-template-columns: 1fr; 
         gap: 3rem; 
+      }
+      .about-img {
+        order: -1; 
       }
       .hero-content h1 { font-size: 3rem; }
       section { padding: 5rem 1.5rem; }
@@ -601,4 +950,76 @@
       
       .about-features { grid-template-columns: 1fr; gap: 1rem; }
       .contact-info, .contact-form { padding: 2rem; }
+      /* Mobile adjustments for the refined central layout */
+    
+        .central-logo { height: 75px; width: 75px; } /* Shrinks logo */
+        .central-branding::after { width: 75px; } /* Shrinks invisible block */
+        .central-branding { gap: 12px; }
+        .central-branding h1 { font-size: 2.2rem; }
+        .hero-content .tagline { font-size: 1rem; margin-bottom: 2.5rem; }
+        .hero-skyline-overlay { background-size: contain; }
+    }
+    /* Mobile adjustments for the refined central layout */
+    @media (max-width: 768px) {
+        .brand-box {
+            flex-direction: column; 
+            text-align: center;
+            gap: 20px;
+        }
+        .brand-text-stack {
+            align-items: center; 
+        }
+        .title-line-2 {
+            flex-direction: column; /* Stacks SINCE 1962 below BUILDERS on phones */
+            align-items: center;
+            gap: 5px;
+        }
+        .central-logo {
+            height: 120px;
+            width: 120px;
+        }
+        .title-line-1, .title-line-2 { font-size: 3rem; }
+        .since-text { font-size: 1.1rem; }
+        /* Fixes the massive gap in mobile view */
+    .brand-text-stack .tagline { 
+        font-size: 0.85rem; 
+        letter-spacing: 1px; 
+        text-align: center; 
+        margin-bottom: 0 !important; /* This kills the old button spacing! */
+    }
+    
+    .grace-text { 
+        text-align: center; 
+        font-size: 1rem; 
+        margin-top: 5px; /* Keeps it snug against the tagline */
+    }
+
+    /* Mobile Timeline adjustments */
+    .timeline::after {
+      left: 31px; /* Moves the line to the left edge */
+    }
+    
+    .timeline-item {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+    
+    /* Forces all items to align like right-side items */
+    .timeline-item.left, .timeline-item.right {
+      left: 0;
+    }
+    
+    .timeline-item.left::after, .timeline-item.right::after {
+      left: 21px; /* Aligns dots to the left line */
+    }
+
+    .timeline-year {
+      font-size: 1.8rem; /* Smaller year on mobile */
+    }
+    /* Add this inside your max-width: 768px block */
+    .nav-links a { color: var(--text-dark) !important; }
+
+    /* Forces the hamburger menu to stay on the right side on mobile */
+        .nav-container::before { flex-grow: 1 !important; }
     }
