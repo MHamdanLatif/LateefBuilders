@@ -1,438 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy | Lateef Builders</title>
-  <meta name="description" content="Privacy Policy for Lateef Builders. Learn how we protect, manage, and use your data when you visit our website.">
-  
+  <!-- SEO Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy & Terms | Lateef Properties</title>
+  <meta name="description" content="Learn how Lateef Properties collects, uses, and protects your data from website forms and Meta (Facebook & Instagram) lead ads.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="blogs/blog.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* --- CSS Variables & Global Styles --- */
-    :root {
-      --primary-blue: #3A4B86; 
-      --light-blue: #6A82C5; 
-      --gradient-bg: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
-      --text-dark: #2C3550;
-      --text-light: #5C6580;
-      --bg-light: #F4F6F9;
-      --white: #FFFFFF;
-      --transition: all 0.3s ease;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-dark);
-      background-color: var(--bg-light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      color: var(--primary-blue);
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* --- Navigation --- */
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0.8rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      height: 50px; 
-      width: auto;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(58, 75, 134, 0.2);
-    }
-
-    .brand-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-blue);
-      line-height: 1.1;
-    }
-
-    .brand-text span {
-      display: block;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: var(--light-blue);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-dark);
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background: var(--gradient-bg);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color: var(--primary-blue); }
-
-    .hamburger {
-      display: none;
-      color: var(--primary-blue);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* --- Page Banner --- */
-    .page-banner {
-      width: 100%;
-      height: 40vh;
-      min-height: 300px;
-      background: var(--gradient-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 1rem;
-      margin-top: 70px; /* Offset for header */
-    }
-
-    .page-banner h1 {
-      color: var(--white);
-      font-size: 3rem;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    /* --- Legal Content Layout --- */
-    .legal-content {
-      max-width: 900px;
-      margin: 4rem auto;
-      padding: 3rem;
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .legal-content h2 {
-      font-size: 1.8rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid rgba(106, 130, 197, 0.2);
-      padding-bottom: 0.5rem;
-    }
-
-    .legal-content h2:first-child {
-      margin-top: 0;
-    }
-
-    .legal-content p, .legal-content ul {
-      font-size: 1.05rem;
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
-
-    .legal-content ul {
-      margin-left: 1.5rem;
-    }
-
-    .legal-content li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* --- Detailed Footer --- */
-    .footer {
-      background: var(--primary-blue); 
-      color: #E2E8F0;
-      padding: 5rem 2rem 2rem;
-      position: relative;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1.5fr 1fr;
-      gap: 3rem;
-    }
-
-    .footer h3, .footer h4 {
-      color: var(--white);
-      margin-bottom: 1.5rem;
-      position: relative;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .footer h3 { font-size: 1.8rem; }
-    .footer h4 {
-      font-size: 1.2rem;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-    }
-
-    .footer h4::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 40px;
-      height: 3px;
-      background: var(--light-blue);
-      border-radius: 2px;
-    }
-
-    .footer p, .footer li {
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 0.8rem;
-      color: #CBD5E1;
-    }
-
-    .footer-links ul { list-style: none; }
-    .footer a { color: #CBD5E1; transition: var(--transition); }
-    .footer a:hover { color: var(--white); text-decoration: underline; }
-
-    .footer-contact i {
-      color: var(--light-blue);
-      margin-right: 10px;
-      width: 16px;
-      text-align: center;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: var(--white);
-      font-size: 1.2rem;
-      transition: var(--transition);
-      text-decoration: none;
-    }
-
-    .social-icons a:hover {
-      background: var(--light-blue);
-      transform: translateY(-3px);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      margin-top: 3rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1); 
-      font-size: 0.9rem;
-      color: #94A3B8;
-    }
-
-    /* --- Mobile Responsiveness --- */
-    @media (max-width: 992px) {
-      .footer-container { grid-template-columns: 1fr 1fr; }
-      .legal-content { margin: 2rem 1rem; padding: 2rem; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        padding: 1rem 0;
-        text-align: center;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lateefproperties.com",
+      "name": "Lateef Properties",
+      "url": "https://lateefproperties.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lateefproperties.com/assets/Lateef-Properties Logo.png"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "PK",
+        "addressLocality": "Karachi"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Karachi"
       }
-      .nav-links.active { display: flex; }
-      .hamburger { display: block; }
-      .brand-text { font-size: 1.2rem; }
-      .page-banner h1 { font-size: 2.2rem; }
-      
-      .footer-container { grid-template-columns: 1fr; gap: 2.5rem; }
-      .footer { padding: 4rem 1.5rem 2rem; }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lateefproperties.com/index.html",
+      "url": "https://lateefproperties.com",
+      "name": "Lateef Properties",
+      "publisher": {
+        "@id": "https://lateefproperties.com"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://lateefproperties.com/privacy-policy.html",
+      "url": "https://lateefproperties.com/privacy-policy",
+      "name": "Privacy Policy & Terms | Lateef Properties",
+      "isPartOf": {
+        "@id": "https://lateefproperties.com/index.html"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Privacy Policy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Terms and Conditions"
+        }
+      ],
+      "inLanguage": "en",
+      "dateModified": "2026-01-01",
+      "publisher": {
+        "@id": "https://lateefproperties.com"
+      }
+    },
+    {
+      "@type": "PrivacyPolicy",
+      "@id": "https://lateefproperties.com/privacy-policy/#privacypolicy",
+      "url": "https://lateefproperties.com/privacy-policy",
+      "name": "Privacy Policy – Lateef Properties",
+      "publisher": {
+        "@id": "https://lateefproperties.com"
+      }
+    },
+    {
+      "@type": "TermsAndConditions",
+      "@id": "https://lateefproperties.com/privacy-policy/#terms",
+      "url": "https://lateefproperties.com/privacy-policy",
+      "name": "Terms & Conditions – Lateef Properties",
+      "publisher": {
+        "@id": "https://lateefproperties.com"
+      }
     }
-  </style>
+  ]
+}
+</script>
+
 </head>
+
 <body>
 
-  <header>
-    <div class="nav-container">
-      <div class="brand">
-        <a href="index.html"><img src="assets/logo.jpg" alt="Lateef Builders Logo"></a>
-        <div class="brand-text">Lateef Builders<span>SINCE 1962</span></div>
-      </div>
-      <i class="fas fa-bars hamburger" id="hamburger"></i>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#projects">Legacy Projects</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
+  <!-- Header -->
+  <header class="blog-header">
+    <h1>Privacy Policy & Terms</h1>
+    <p>Transparency, data protection, and clear communication — the Lateef Properties commitment.</p>
   </header>
 
-  <section class="page-banner">
-    <h1>Privacy Policy</h1>
-  </section>
+  <!-- Content -->
+  <main class="post-container">
+    <article class="blog-article">
 
-  <main class="legal-content">
-    <p><em>Last Updated: March 24, 2026</em></p>
+      <p class="post-meta">
+        Last Updated: January 2026
+      </p>
 
-    <p>Welcome to Lateef Builders. We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard the data you provide when interacting with our website.</p>
+      <h2 id="privacypolicy">1. Introduction</h2>
+      <p>
+        Lateef Properties (“we”, “us”, or “our”) values your privacy and is committed to protecting the personal
+        information you share with us. This Privacy Policy explains how we collect, use, and safeguard data
+        submitted through <strong>lateefproperties.com</strong> and our Meta (Facebook & Instagram) lead forms.
+      </p>
 
-    <h2>1. Information We Collect</h2>
-    <p>We may collect personal information that you voluntarily provide to us when expressing an interest in obtaining information about our construction projects, services, or when contacting us. The personal information we collect may include:</p>
-    <ul>
-      <li><strong>Personal Details:</strong> Your full name, email address, and phone number.</li>
-      <li><strong>Communication Data:</strong> Any messages, inquiries, or project details you submit through our contact form.</li>
-      <li><strong>Usage Data:</strong> We may automatically collect anonymous information about how you interact with our website (e.g., browser type, IP address, pages visited) to improve user experience.</li>
-    </ul>
+      <h2>2. Information We Collect</h2>
+      <p>
+        When you submit your details through our website or social media lead forms, we may collect:
+      </p>
+      <ul>
+        <li>Your name and contact details (phone number and email address)</li>
+        <li>Property preferences such as location (DHA, Scheme 33, Gulshan, etc.) and budget range</li>
+        <li>Your city of residence</li>
+      </ul>
 
-    <h2>2. How We Use Your Information</h2>
-    <p>The information we collect is strictly used to facilitate communication and provide you with better services. We use your data to:</p>
-    <ul>
-      <li>Respond directly to your inquiries and consultation requests.</li>
-      <li>Send you updates regarding upcoming real estate and construction projects (only if you have opted in).</li>
-      <li>Improve the layout, performance, and functionality of our website.</li>
-    </ul>
+      <h2>3. How We Use Your Information</h2>
+      <p>Your information is used strictly for legitimate real estate communication purposes, including:</p>
+      <ul>
+        <li>Sharing requested brochures, floor plans, and price lists via WhatsApp or email</li>
+        <li>Contacting you for follow-up consultations related to your inquiry</li>
+        <li>Informing you about relevant property and investment opportunities in Karachi</li>
+      </ul>
 
-    <h2>3. Data Protection and Sharing</h2>
-    <p><strong>We do not sell, rent, or trade your personal information to third parties.</strong> Your data is kept secure and is only accessible by authorized personnel at Lateef Builders for the sole purpose of customer service and project management.</p>
+      <h2>4. Data Sharing & Security</h2>
+      <p>
+        Lateef Properties does <strong>not sell or rent</strong> your personal data to third parties.
+        Your information may only be shared with:
+      </p>
+      <ul>
+        <li>Our internal sales and advisory team</li>
+        <li>Trusted CRM and automation partners (e.g., WhatsApp API providers, Privyr, Wati)</li>
+      </ul>
+      <p>
+        We apply industry-standard security measures to protect your data against unauthorized access or misuse.
+      </p>
 
-    <h2>4. Cookies and Tracking Technologies</h2>
-    <p>Our website may use standard "cookies" to enhance your browsing experience. Cookies are small text files placed on your device to track site usage patterns. You can choose to disable cookies through your browser settings, though some website features may not function as intended.</p>
+      <h2>5. Your Rights & Opt-Out</h2>
+      <p>
+        You may request deletion of your data or opt out of communications at any time by:
+      </p>
+      <ul>
+        <li>Replying <strong>“STOP”</strong> to any WhatsApp message</li>
+        <li>Emailing us at <strong>info@lateefproperties.com</strong></li>
+      </ul>
 
-    <h2>5. Third-Party Links</h2>
-    <p>Our website may contain links to external sites (such as our social media profiles on Facebook, Instagram, or WhatsApp). We are not responsible for the privacy practices or content of these third-party platforms. We encourage you to read their privacy policies before providing them with your personal information.</p>
+      <blockquote>
+        Lateef Properties communicates only with verified representatives and official contact channels.
+      </blockquote>
 
-    <h2>6. Changes to This Privacy Policy</h2>
-    <p>Lateef Builders reserves the right to update or modify this Privacy Policy at any time to reflect changes in our business practices or legal obligations. Any updates will be posted on this page with a revised "Last Updated" date.</p>
+      <h2 id="terms">6. Terms & Conditions</h2>
 
-    <h2>7. Contact Us</h2>
-    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how your data is handled, please contact us at:</p>
-    <ul>
-      <li><strong>Email:</strong> info@lateefbuilders.com</li>
-      <li><strong>Phone:</strong> +92 336 3528333</li>
-      <li><strong>Office:</strong> Ground Floor Office, Four Seasons Apartment, Gulshan-e-Iqbal, Block 16, Karachi, Pakistan.</li>
-    </ul>
+      <h2>6.1 Information Disclaimer</h2>
+      <p>
+        All information provided by Lateef Properties — including prices, payment plans, layouts, and maps —
+        is for informational purposes only. Final pricing and availability are subject to official confirmation
+        by the respective developers or authorities (e.g., DHA, Societies, private builders).
+      </p>
+
+      <h2>6.2 No Financial or Investment Advice</h2>
+      <p>
+        Real estate investments involve market risks. While we provide insights and market analysis,
+        the final investment decision rests solely with the buyer. Lateef Properties is not liable for
+        market fluctuations, price changes, or future valuations.
+      </p>
+
+      <h2>6.3 Automation & Communication Consent</h2>
+      <p>
+        By submitting your details on our website or Meta lead forms, you explicitly consent to receive:
+      </p>
+      <ul>
+        <li>Automated WhatsApp messages (including PDFs, images, and voice notes)</li>
+        <li>Phone calls and follow-ups from our verified representatives</li>
+      </ul>
+
+      <h2>6.4 Jurisdiction</h2>
+      <p>
+        These terms are governed by the laws of the <strong>Islamic Republic of Pakistan</strong>.
+        Any disputes shall fall under the exclusive jurisdiction of the courts of <strong>Karachi</strong>.
+      </p>
+
+    </article>
   </main>
 
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-about">
-        <h3>Lateef Builders</h3>
-        <p>Building Karachi's skyline since 1962. We deliver premium residential and commercial projects grounded in structural integrity, innovation, and a legacy of trust.</p>  
-      </div>
-
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="index.html#about">About Us</a></li>
-          <li><a href="index.html#projects">Legacy Projects</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="https://www.google.com/maps/place/Lateef+Builders+and+Properties/@24.9036306,67.077936,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33fa4811cf2ad:0xe94d445b7a2ddae1!8m2!3d24.9036258!4d67.0805109!16s%2Fg%2F11sn_7lcts?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">Location</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-contact">
-        <h4>Contact Us</h4>
-        <p><i class="fa-solid fa-phone"></i> <a href="tel:+923363528333">+92 336 3528333</a></p>
-        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@lateefbuilders.com">info@lateefbuilders.com</a></p>
-        <p>
-          <i class="fa-solid fa-location-dot"></i>
-          <a href="https://www.google.com/maps/place/Lateef+Builders+and+Properties/@24.9036306,67.077936,17z/data=!3m1!4b1!4m6!3m5!1s0x3eb33fa4811cf2ad:0xe94d445b7a2ddae1!8m2!3d24.9036258!4d67.0805109!16s%2Fg%2F11sn_7lcts?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-            <address>Ground Floor Office, Four Seasons Apartment,<br>Gulshan-e-Iqbal, Block 16, Karachi</address>
-          </a>
-        </p>
-        <p><i class="fa-solid fa-clock"></i> Mon–Sat: 10:00am – 07:00pm</p>
-      </div>
-          
-      <div class="footer-social">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="https://facebook.com/lateefbuilders" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://instagram.com/lateefbuilders" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/923363528333" id="waBtnFooter" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.youtube.com/@lateefbuilders2146" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2026 Lateef Builders. All Rights Reserved.</p>
-    </div>
+  <!-- Footer -->
+  <footer class="blog-footer">
+    <p>© 2026 Lateef Properties. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Mobile Navigation
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-  </script>
 </body>
 </html>
