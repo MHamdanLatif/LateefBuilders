@@ -632,6 +632,34 @@
   </div>
 </footer>
 
+<!-- Floating Contact Button -->
+<div class="floating-contact-wrap">
+    
+    <div class="floating-options" id="floating-options">
+      
+      <a href="https://wa.me/923338231377" target="_blank" class="f-option whatsapp" aria-label="Chat on WhatsApp">
+        <span class="f-text">WhatsApp</span>
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      
+      <a href="https://m.me/builderslateef" target="_blank" class="f-option messenger" aria-label="Message on Facebook">
+        <span class="f-text">Messenger</span>
+        <i class="fab fa-facebook-messenger"></i>
+      </a>
+      
+      <a href="tel:+922134803030" class="f-option call" aria-label="Call Us Directly">
+        <span class="f-text">Call Us</span>
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      
+    </div>
+
+    <button class="floating-main-btn" id="floating-toggle" aria-label="Contact Us">
+      <i class="fas fa-comments"></i>
+    </button>
+    
+  </div>
+
   <script>
     // Mobile Navigation
     const hamburger = document.getElementById('hamburger');
@@ -851,6 +879,34 @@
       } else {
         // If they are at the very top
         header.classList.remove('header-scrolled');
+      }
+    });
+
+    // --- Floating Contact Toggle Logic ---
+    const floatingToggle = document.getElementById('floating-toggle');
+    const floatingOptions = document.getElementById('floating-options');
+    const toggleIcon = floatingToggle.querySelector('i');
+
+    floatingToggle.addEventListener('click', () => {
+      // Toggle the visibility of the options
+      floatingOptions.classList.toggle('active-contact');
+      
+      // Swap the icon between a chat bubble and an 'X'
+      if (floatingOptions.classList.contains('active-contact')) {
+        toggleIcon.classList.remove('fa-comments');
+        toggleIcon.classList.add('fa-times');
+      } else {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-comments');
+      }
+    });
+
+    // Optional: Close the menu if the user clicks anywhere else on the screen
+    document.addEventListener('click', (e) => {
+      if (!floatingToggle.contains(e.target) && !floatingOptions.contains(e.target)) {
+        floatingOptions.classList.remove('active-contact');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-comments');
       }
     });
   </script>
