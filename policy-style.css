@@ -1,0 +1,191 @@
+/* --- CSS Variables (Matching Lateef Builders Brand) --- */
+:root {
+  --primary-blue: #3A4B86; 
+  --light-blue: #6A82C5; 
+  --text-dark: #2C3550;
+  --text-light: #5C6580;
+  --bg-light: #F4F6F9;
+  --white: #FFFFFF;
+  --border-color: #E2E8F0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Minimalist Navigation --- */
+.policy-nav {
+  background: var(--white);
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--primary-blue);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--light-blue);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+}
+
+/* --- Header --- */
+.policy-header {
+  background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+  color: var(--white);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.policy-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.policy-header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Main Content Area --- */
+.post-container {
+  max-width: 800px;
+  margin: -3rem auto 4rem;
+  background: var(--white);
+  padding: 4rem;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #94A3B8;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+/* --- Typography Formatting --- */
+.policy-article h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.policy-article p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.policy-article ul {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.policy-article li {
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+  position: relative;
+  list-style-type: disc;
+}
+
+.policy-article li::marker {
+  color: var(--light-blue);
+}
+
+.policy-article strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 4rem 0;
+}
+
+/* --- Blockquotes --- */
+blockquote {
+  background: rgba(106, 130, 197, 0.05);
+  border-left: 4px solid var(--light-blue);
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--primary-blue);
+}
+
+/* --- Footer --- */
+.policy-footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--bg-light);
+  color: var(--text-light);
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-logo {
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.policy-footer p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .post-container {
+    margin: -2rem 1rem 3rem;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .policy-header {
+    padding: 4rem 1.5rem 5rem;
+  }
+  
+  .policy-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .policy-article h2 {
+    font-size: 1.5rem;
+  }
+}
